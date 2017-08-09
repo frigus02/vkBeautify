@@ -1,53 +1,36 @@
 # vkBeautify
 
-javascript  plugin to **pretty-print** or **minify**
-text in **XML**, **JSON**, **CSS** and **SQL** formats.
+> Stripped down and modernized version of the original [vkBeautify](https://github.com/vkiryukhin/vkBeautify) library.
 
-**Version** - 0.98.00.beta
+The original vkBeautify library is great. However I does not fit exactly my
+needs. So I make the following adjustments:
 
-**Copyright** (c) 2012 Vadim Kiryukhin ( vkiryukhin @ gmail.com )
+*   Make it work in Web Workers.
+*   Remove minification functions.
+*   Remove CSS and SQL support.
 
-**Home page:** [http://www.eslinstructor.net/vkbeautify/](http://www.eslinstructor.net/vkbeautify/) 
+This results in a small library, which can **pretty-print** text in **JSON** and **XML**.
 
-**License:** Dual licensed under
-the MIT and GPL licenses:
+## Install
 
-[http://www.opensource.org/licenses/mit-license.php](http://www.opensource.org/licenses/mit-license.php)
+```
+$ bower install --save frigus02/vkBeautify
+```
 
-[http://www.gnu.org/licenses/gpl.html](http://www.gnu.org/licenses/gpl.html)
+## Usage
 
+```javascript
+/**
+ * @param {string} text - Text to beautify.
+ * @param {(number|string)} [step=\t] - Number of white spaces or string to visualize indentation (can also be a set of white spaces).
+ * @returns {string} - The beautified text.
+ */
+vkbeautify.json(text, step);
+vkbeautify.xml(text, step);
+```
 
-   **Pretty print**
+## License
 
-        vkbeautify.xml(text [,indent_pattern]);
-        vkbeautify.json(text [,indent_pattern]);
-        vkbeautify.css(text [,indent_pattern]);
-        vkbeautify.sql(text [,indent_pattern]);
+Original vkBeautify: [MIT © Vadim Kiryukhin.](ORIGINAL-LICENSE)
 
-        @text - String; text to beatufy;
-        @indent_pattern - Integer | String;
-                Integer:  number of white spaces;
-                String:   character string to visualize indentation ( can also be a set of white spaces )
-  **Minify**
-
-        vkbeautify.xmlmin(text [,preserve_comments]);
-        vkbeautify.jsonmin(text);
-        vkbeautify.cssmin(text [,preserve_comments]);
-        vkbeautify.sqlmin(text);
-
-        @text - String; text to minify;
-        @preserve_comments - Bool; [optional];
-                Set this flag to true to prevent removing comments from @text ( minxml and mincss functions only. )
-
-   **Examples**
-   
-        vkbeautify.xml(text); // pretty print XML
-        vkbeautify.json(text, 4 ); // pretty print JSON
-        vkbeautify.css(text, '. . . .'); // pretty print CSS
-        vkbeautify.sql(text, '----'); // pretty print SQL
-
-        vkbeautify.xmlmin(text, true);// minify XML, preserve comments
-        vkbeautify.jsonmin(text);// minify JSON
-        vkbeautify.cssmin(text);// minify CSS, remove comments ( default )
-        vkbeautify.sqlmin(text);// minify SQL
-
+This version: [MIT © Jan Kühle.](LICENSE)
