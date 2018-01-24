@@ -1,8 +1,18 @@
 /**
- * vkBeautify v1.0.0
+ * vkBeautify v1.0.1
  * Stripped down and modernized version of the original vkBeautify library.
  */
-(function() {
+(function (global, factory) {
+    if (typeof exports === 'object' && typeof module !== 'undefined') {
+        module.exports = factory();
+    } else if (typeof define === 'function' && define.amd) {
+        define(factory);
+    } else {
+        global.vkbeautify = factory();
+    }
+}(this, function () {
+
+    'use strict';
 
     function createShiftArr(step) {
         let space = '    ';
@@ -25,7 +35,7 @@
         this.shift = createShiftArr(this.step);
     }
 
-    vkbeautify.prototype.xml = function(text, step) {
+    vkbeautify.prototype.xml = function (text, step) {
         const ar = text.replace(/>\s{0,}</g, "><")
             .replace(/</g, "~::~<")
             .replace(/\s*xmlns\:/g, "~::~xmlns:")
@@ -91,7 +101,7 @@
         return str[0] == '\n' ? str.slice(1) : str;
     };
 
-    vkbeautify.prototype.json = function(text, step) {
+    vkbeautify.prototype.json = function (text, step) {
         step = step || this.step;
 
         if (typeof text === 'string') {
@@ -103,6 +113,6 @@
         }
     };
 
-    self.vkbeautify = new vkbeautify();
+    return new vkbeautify();
 
-})();
+}));
