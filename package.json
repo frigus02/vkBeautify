@@ -1,0 +1,9 @@
+{
+  "name": "frigus02-vkbeautify",
+  "version": "1.0.1",
+  "description": "Stripped down and modernized version of the original vkBeautify library.",
+  "main": "vkbeautify.js",
+  "repository": "https://github.com/frigus02/vkBeautify.git",
+  "author": "Jan Kuehle <jkuehle90@gmail.com>",
+  "license": "MIT"
+}

@@ -15,6 +15,8 @@ This results in a small library, which can **pretty-print** text in **JSON** and
 
 ```
 $ bower install --save frigus02/vkBeautify
+$ npm install frigus02-vkbeautify
+$ yarn add frigus02-vkbeautify
 ```
 
 ## Usage
